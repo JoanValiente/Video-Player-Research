@@ -35,7 +35,7 @@ public:
 	bool CleanUp();
 
 public:
-	iPoint destination;
+	j1Timer introTime;
 };
 
 #endif // __j1SCENE_H__
