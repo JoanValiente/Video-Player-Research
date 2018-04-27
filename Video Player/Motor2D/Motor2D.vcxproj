@@ -82,6 +82,7 @@
     <ClCompile Include="j1Input.cpp" />
     <ClCompile Include="j1Map.cpp" />
     <ClCompile Include="j1Scene.cpp" />
+    <ClCompile Include="j1Timer.cpp" />
     <ClCompile Include="j1Video.cpp" />
     <ClCompile Include="p2Log.cpp" />
     <ClCompile Include="j1Render.cpp" />
@@ -90,10 +91,12 @@
     <ClCompile Include="PugiXml\src\pugixml.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Defs.h" />
     <ClInclude Include="j1Map.h" />
     <ClInclude Include="j1Scene.h" />
     <ClInclude Include="j1Audio.h" />
     <ClInclude Include="j1Input.h" />
+    <ClInclude Include="j1Timer.h" />
     <ClInclude Include="j1Video.h" />
     <ClInclude Include="p2Log.h" />
     <ClInclude Include="j1App.h" />

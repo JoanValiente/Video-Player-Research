@@ -2,8 +2,7 @@
 #define __j1SCENE_H__
 
 #include "j1Module.h"
-
-#include "p2Point.h"
+#include "j1Timer.h"
 
 struct SDL_Texture;
 

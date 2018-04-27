@@ -32,7 +32,7 @@ bool j1Scene::Awake()
 // Called before the first frame
 bool j1Scene::Start()
 {
-	App->video->Initialize("intro_anim.avi");
+	App->video->Initialize("video/drop.avi");
 	introTime.Start();
 	App->win->SetTitle("Video Player");
 
@@ -49,7 +49,7 @@ bool j1Scene::PreUpdate()
 // Called each loop iteration
 bool j1Scene::Update(float dt)
 {
-	if (introTime.ReadSec() < videoTime)
+	if (introTime.ReadSec() < 5.0)
 	{
 		App->video->GrabAVIFrame();
 	}

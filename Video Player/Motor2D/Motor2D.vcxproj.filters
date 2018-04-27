@@ -37,6 +37,9 @@
     <ClCompile Include="j1Video.cpp">
       <Filter>Desenvolupament  ========\Video Player</Filter>
     </ClCompile>
+    <ClCompile Include="j1Timer.cpp">
+      <Filter>Desenvolupament  ========\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="j1Window.h">
@@ -89,6 +92,12 @@
     </ClInclude>
     <ClInclude Include="j1Video.h">
       <Filter>Desenvolupament  ========\Video Player</Filter>
+    </ClInclude>
+    <ClInclude Include="j1Timer.h">
+      <Filter>Desenvolupament  ========\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Defs.h">
+      <Filter>Desenvolupament  ========\Tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
