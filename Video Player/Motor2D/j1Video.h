@@ -5,7 +5,6 @@
 #include <windows.h>
 #include <gl\gl.h>                            // Header File For The OpenGL32 Library
 #include <gl\glu.h>                           // Header File For The GLu32 Library
-#include <dshow.h>
 #include <Vfw.h>                          // Header File For Video For Windows
 #pragma comment( lib, "opengl32.lib" )                  // Search For OpenGL32.lib While Linking
 #pragma comment( lib, "glu32.lib" )                 // Search For GLu32.lib While Linking
