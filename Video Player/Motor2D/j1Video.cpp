@@ -102,11 +102,11 @@ bool j1Video::GrabAVIFrame()
 	pdata = (char *)lpbi + lpbi->biSize + lpbi->biClrUsed * sizeof(RGBQUAD);    // Pointer To Data Returned By AVIStreamGetFrame
 																				// (Skip The Header Info To Get To The Data)
 																				// Convert Data To Requested Bitmap Format
-	DrawDibDraw(hdd, hdc, 0, 0, 256, 256, lpbi, pdata, 0, 0, width, height, 0);
+	//DrawDibDraw(hdd, hdc, 0, 0, 256, 256, lpbi, pdata, 0, 0, width, height, 0);
 	//flip(data);                           // Swap The Red And Blue Bytes (GL Compatability)
 
 
-	glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 256, 256, GL_RGB, GL_UNSIGNED_BYTE, data); // Update The Texture
+	//glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 256, 256, GL_RGB, GL_UNSIGNED_BYTE, data); // Update The Texture
 	return false;
 }
 
