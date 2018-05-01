@@ -1,8 +1,12 @@
-#include "p2Defs.h"
 #include "p2Log.h"
 #include "j1App.h"
 #include "j1Window.h"
+#include "j1Textures.h"
+#include "j1Render.h"
+
+#include <windows.h>
 #include "SDL/include/SDL.h"
+#include "SDL_image\include\SDL_image.h"
 
 #include "j1Video.h"
 
@@ -102,12 +106,27 @@ bool j1Video::GrabAVIFrame()
 	pdata = (char *)lpbi + lpbi->biSize + lpbi->biClrUsed * sizeof(RGBQUAD);    // Pointer To Data Returned By AVIStreamGetFrame
 																				// (Skip The Header Info To Get To The Data)
 																				// Convert Data To Requested Bitmap Format
+	SDL_Surface* surface = SDL_CreateRGBSurfaceFrom(pdata, width, height, lpbi->biBitCount, width * 3, 0, 0, 0, 0);
+	SDL_Texture* texture = App->tex->LoadSurface(surface);
 	//DrawDibDraw(hdd, hdc, 0, 0, 256, 256, lpbi, pdata, 0, 0, width, height, 0);
 	//flip(data);                           // Swap The Red And Blue Bytes (GL Compatability)
+	uint windowWidth, windowHeight;
+	App->win->GetWindowSize(windowWidth, windowHeight);
+	App->render->Blit(texture, 1, windowHeight, NULL, SDL_FLIP_VERTICAL, 1.0, 0, 0, 0);
 
+	if (i % 2 == 0)
+	{
+		frame++;
+	}
+	i++;
+	if (frame >= lastframe)
+		frame = 0;
 
 	//glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 256, 256, GL_RGB, GL_UNSIGNED_BYTE, data); // Update The Texture
-	return false;
+	App->tex->UnLoad(texture);
+	SDL_FreeSurface(surface);
+
+	return true;
 }
 
 void j1Video::CloseAVI()

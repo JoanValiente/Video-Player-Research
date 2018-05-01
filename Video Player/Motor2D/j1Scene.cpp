@@ -34,7 +34,7 @@ bool j1Scene::Start()
 {
 	App->video->Initialize("video/sample.avi");
 	introTime.Start();
-	App->win->SetTitle("Video Player");
+	//App->win->SetTitle("Video Player");
 
 
 	return true;
@@ -54,6 +54,9 @@ bool j1Scene::Update(float dt)
 		App->video->GrabAVIFrame();
 	}
 
+	if (App->input->GetKey(SDL_SCANCODE_1)) {
+		App->video->CloseAVI();
+	}
 
 	return true;
 }

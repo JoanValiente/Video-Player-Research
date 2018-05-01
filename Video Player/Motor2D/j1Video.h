@@ -35,6 +35,7 @@ public:
 	void CloseAVI();
 
 	void flip(void* buffer);
+
 private:
 	// User Defined Variables
 	float       angle;                          // Used For Rotation
@@ -60,6 +61,8 @@ private:
 	HBITMAP hBitmap;                            // Handle To A Device Dependant Bitmap
 	HDC hdc = CreateCompatibleDC(0);                    // Creates A Compatible Device Context
 	unsigned char* data = 0;                        // Pointer To Our Resized Image
+
+	int i = 1;
 };
 
 #endif // __j1Video_H__
