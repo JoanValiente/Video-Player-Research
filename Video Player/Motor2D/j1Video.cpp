@@ -26,7 +26,6 @@ bool j1Video::Awake(pugi::xml_node &)
 
 bool j1Video::CleanUp()
 {
-	CloseAVI();
 	return true;
 }
 
