@@ -32,7 +32,7 @@ bool j1Scene::Awake()
 // Called before the first frame
 bool j1Scene::Start()
 {
-	App->video->Initialize("video/sample2.avi");
+	App->video->Initialize("video/sample.avi");
 	introTime.Start();
 	App->win->SetTitle("Video Player");
 

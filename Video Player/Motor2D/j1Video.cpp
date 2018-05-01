@@ -86,7 +86,7 @@ void j1Video::OpenAVI(LPCSTR path)
 	SelectObject(hdc, hBitmap);                           // Select hBitmap Into Our Device Context (hdc)
 	*/
 
-	pgf = AVIStreamGetFrameOpen(pavi, NULL);              // Create The PGETFRAME Using Our Request Mode
+	pgf = AVIStreamGetFrameOpen(pavi, (LPBITMAPINFOHEADER)AVIGETFRAMEF_BESTDISPLAYFMT);              // Create The PGETFRAME Using Our Request Mode
 	if (pgf == NULL)
 		LOG("Failed To Open The AVI Frame");
 
