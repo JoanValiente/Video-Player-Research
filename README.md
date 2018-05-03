@@ -5,7 +5,7 @@ I am [Joan Valiente](www.linkedin.com/in/joan-valiente-lorite-498a9b129), studen
 
 
 
-##1.Introduction
+## 1.Introduction
 
 In this website I will explain how to implement a module to reproduce AVI files, and how it works. This modules are programmed in C++ using VisualStudio2017.
 I am also using Video For Windows libraries and DirectShow to open, read and decompress AVI files; and SDL to render graphics.
@@ -13,7 +13,7 @@ I am also using Video For Windows libraries and DirectShow to open, read and dec
 I want to say that the way I have implemented this code is not absolute, or the best. There are many ways of doing it, this tutorial is just an example of how I managed to solve this problem, so if you do not want to follow this tutorial and do it your own way I encourage you to check the references links that I visited to do this.
 I hope you find it useful.
 
-##2. Pre-rendered videos on video games
+## 2. Pre-rendered videos on video games
 
 Pre-rendering is the process in which video footage is not rendered in real-time by the hardware that is outputting or playing back the video. Instead, the video is a recording of footage that was previously rendered on different equipment.
 Since we are learning how to implement a video player to use it on our games projects, I think it is important to explain a little bit what their uses are, their advantatges, their disadvantages, etc.
@@ -35,7 +35,7 @@ Black Ops. Intermission cutscene.
 <div style="position:relative;height:0;padding-bottom:52.18%"><iframe src="https://www.youtube.com/embed/dA0kR3SLJJc?ecver=2" style="position:absolute;width:100%;height:100%;left:0" width="690" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
 Valve Intro(2012). 
 
-###2.1 Pre-rendered cutscenes vs real time cutscenes
+### 2.1 Pre-rendered cutscenes vs real time cutscenes
 
 Nowadays, most of the community dislikes pre-rendered cutscenes. A few years ago, their narrative strength offset their lack of interaction, but now that our computational limitations are way much smaller, users prefer real time cutscenes.
 
@@ -50,7 +50,7 @@ How is it going to work? The theory is really simple. First, we have to read the
 
 FUNCTIONS
 We will have four esential functions. 
--**OpenAVI, that opens the avi file and reads its stream data.
--**Initialize, that calls OpenAVI with the path to the file (we will call this function whenever we want to play a video)
--**GrabAVIFrame, that gets the frame data, makes a surface and a texture, and blit it.
--**CloseAVI, that will free the memory we have used.
+-**OpenAVI**, that opens the avi file and reads its stream data.
+-**Initialize**, that calls OpenAVI with the path to the file (we will call this function whenever we want to play a video)
+-**GrabAVIFrame**, that gets the frame data, makes a surface and a texture, and blit it.
+-**CloseAVI**, that will free the memory we have used.
