@@ -51,6 +51,8 @@ God of War 4. Real time cutscenes.
 
 How is it going to work? The theory is really simple. First, we have to read the avi file and the stream data. Then, on each loop we will take the bitmap data of a frame. With that, we will create a surface and a texture from that surface, and we will blit it on screen. Of course there are more steps to follow inbetween those, but that is a brief explanation of how it works.
 
+![](docs/asdasd.png)
+
 ### 3.1 The module
 
 FUNCTIONS
@@ -228,10 +230,16 @@ Follow the next steps:
 1. Go to File->Export->Media...
 2. Go to Video Codec options and select "Códec Intel IYUV"
 
+
+![](docs/PPExportBox.png)
+
+![](docs/dzfasdf.png)
+
+
 SOLUTION
 If you have done that steps right, the program should not break now.
 
-## TODO 5: Create the surface and the texture, and then free them.
+### TODO 5: Create the surface and the texture, and then free them.
 
 TODO 5.1: Create a surface using the bitmap data we have above this TODO, and create the texture of the frame with that surface (use LoadSurface from textures module)
 - pdata holds the texture data (pixels)
@@ -261,7 +269,7 @@ App->tex->UnLoad(texture);
 
 ```
 
-## TODO 6: Blit the texture of the frame.
+### TODO 6: Blit the texture of the frame.
 
 TODO 6.1: Do the blit with the texture we have created in the last TODO.
 
@@ -275,6 +283,9 @@ App->render->Blit(texture, 0, 0);
 
 
 Now you should see the video playing, but fliped in vertical and way too fast. Let's flip it! We will deal with the speed in the next TODO.
+
+
+![](docs/zsxdas.png)
 
 
 TODO 6.2: Prepare the blit function to recieve a SDL_RenderFlip flag.
@@ -342,18 +353,18 @@ App->audio->PlayMusic("video/sample.ogg", 0.0f);
 
 ## References
 
-- http://www.any-video-converter.com/mac-tutorial/video-codec.php
-- https://stackoverflow.com/questions/39059959/vfw-avistreamgetframeopen-returns-null
-- https://en.wikipedia.org/wiki/Full_motion_video
-- https://en.wikipedia.org/wiki/Pre-rendering
-- http://nehe.gamedev.net/tutorial/playing_avi_files_in_opengl/23001/
-- http://dranger.com/ffmpeg/tutorial01.html
-- https://msdn.microsoft.com/es-es/library/windows/desktop/dd407173(v=vs.85).aspx
-- https://wiki.libsdl.org
-- https://wolfcrow.com/blog/the-adobe-premiere-pro-export-guide-part-one-codecs/
-- https://www.reddit.com/r/truegaming/comments/1zksx4/prerendered_vs_inengine_cutscenes/
-- https://www.gamespot.com/forums/playstation-nation-1000002/prerendered-vs-real-time-cutscenes-27069600/
-- https://en.wikipedia.org/wiki/The_7th_Guest
-- http://lazyfoo.net/tutorials/SDL/15_rotation_and_flipping/index.php
-- https://es.wikipedia.org/wiki/Vorbis
-- https://discourse.libsdl.org/t/avi-player/11229/3
+- [http://www.any-video-converter.com/mac-tutorial/video-codec.php](http://www.any-video-converter.com/mac-tutorial/video-codec.php)
+- [https://stackoverflow.com/questions/39059959/vfw-avistreamgetframeopen-returns-null](https://stackoverflow.com/questions/39059959/vfw-avistreamgetframeopen-returns-null)
+- [https://en.wikipedia.org/wiki/Full_motion_video](https://en.wikipedia.org/wiki/Full_motion_video)
+- [https://en.wikipedia.org/wiki/Pre-rendering](https://en.wikipedia.org/wiki/Pre-rendering)
+- [http://nehe.gamedev.net/tutorial/playing_avi_files_in_opengl/23001/](http://nehe.gamedev.net/tutorial/playing_avi_files_in_opengl/23001/)
+- [http://dranger.com/ffmpeg/tutorial01.html](http://dranger.com/ffmpeg/tutorial01.html)
+- [https://msdn.microsoft.com/es-es/library/windows/desktop/dd407173(v=vs.85).aspx](https://msdn.microsoft.com/es-es/library/windows/desktop/dd407173(v=vs.85).aspx)
+- [https://wiki.libsdl.org](https://wiki.libsdl.org)
+- [https://wolfcrow.com/blog/the-adobe-premiere-pro-export-guide-part-one-codecs/](https://wolfcrow.com/blog/the-adobe-premiere-pro-export-guide-part-one-codecs/)
+- [https://www.reddit.com/r/truegaming/comments/1zksx4/prerendered_vs_inengine_cutscenes/](https://www.reddit.com/r/truegaming/comments/1zksx4/prerendered_vs_inengine_cutscenes/)
+- [https://www.gamespot.com/forums/playstation-nation-1000002/prerendered-vs-real-time-cutscenes-27069600/](https://www.gamespot.com/forums/playstation-nation-1000002/prerendered-vs-real-time-cutscenes-27069600/)
+- [https://en.wikipedia.org/wiki/The_7th_Guest](https://en.wikipedia.org/wiki/The_7th_Guest)
+- [http://lazyfoo.net/tutorials/SDL/15_rotation_and_flipping/index.php](http://lazyfoo.net/tutorials/SDL/15_rotation_and_flipping/index.php)
+- [https://es.wikipedia.org/wiki/Vorbis](https://es.wikipedia.org/wiki/Vorbis)
+- [https://discourse.libsdl.org/t/avi-player/11229/3](https://discourse.libsdl.org/t/avi-player/11229/3)
