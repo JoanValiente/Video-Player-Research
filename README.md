@@ -12,6 +12,7 @@ I want to say that the way I have implemented this code is not absolute, or the 
 I hope you find it useful.
 
 ##2. Pre-rendered videos on video games
+
 Pre-rendering is the process in which video footage is not rendered in real-time by the hardware that is outputting or playing back the video. Instead, the video is a recording of footage that was previously rendered on different equipment.
 Since we are learning how to implement a video player to use it on our games projects, I think it is important to explain a little bit what their uses are, their advantatges, their disadvantages, etc.
 The most common use of a video player in video games is for cut-scenes. But we can also use it for an intro animation of the studio, intermissions, credits, etc. However, pre-rendered cutscenes are mostly rejected by users nowadays, but we will talk about that later. 
@@ -39,9 +40,11 @@ Nowadays, most of the community dislikes pre-rendered cutscenes. A few years ago
 God of War 4. Real time cutscenes. 
 
 ## 3. Our video player
+
 How is it going to work? The theory is really simple. First, we have to read the avi file and the stream data. Then, on each loop we will take the bitmap data of a frame. With that, we will create a surface and a texture from that surface, and we will blit it on screen. Of course there are more steps to follow inbetween those, but that is a brief explanation of how it works.
 
-### 3.1 The module.
+### 3.1 The module
+
 FUNCTIONS
 We will have four esential functions. 
 - **OpenAVI, that opens the avi file and reads its stream data.
