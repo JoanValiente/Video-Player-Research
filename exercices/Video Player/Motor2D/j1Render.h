@@ -38,7 +38,7 @@ public:
 	iPoint ScreenToWorld(int x, int y) const;
 
 	// Draw & Blit
-	//TODO 5.2: Prepare the blit function to recieve a SDL_RenderFlip flag. Remember to put a default value (SDL_FLIP_NONE).
+	//TODO 6.2: Prepare the blit function to recieve a SDL_RenderFlip flag. Remember to put a default value (SDL_FLIP_NONE).
 	bool Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* section = nullptr, float speed = 1.0f, double angle = 0, int pivot_x = 0, int pivot_y = 0) const;
 	bool DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a = 255, bool filled = true, bool use_camera = true) const;
 	bool DrawLine(int x1, int y1, int x2, int y2, Uint8 r, Uint8 g, Uint8 b, Uint8 a = 255, bool use_camera = true) const;

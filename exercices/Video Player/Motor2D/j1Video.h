@@ -23,7 +23,6 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
-	// Play a music file
 	void Initialize(char* file_path);
 	void OpenAVI(LPCSTR path);
 	bool GrabAVIFrame();
@@ -34,16 +33,13 @@ public:
 	bool				isVideoFinished = false;
 
 private:
-	// User Defined Variables
-	float       angle;                          // Used For Rotation
-	int			next;                           // Used For Animation
+
 	int			frame = 0;                      // Frame Counter
 
 
 	AVISTREAMINFO       psi;                        // Pointer To A Structure Containing Stream Info
 	PAVISTREAM			pavi;                       // Handle To An Open Stream
 	PGETFRAME			pgf;                        // Pointer To A GetFrame Object
-	BITMAPINFOHEADER    bmih;                       // Header Information For DrawDibDraw Decoding
 
 	long				lastFrame;                  // Last Frame Of The Stream
 	int					width;                      // Video Width

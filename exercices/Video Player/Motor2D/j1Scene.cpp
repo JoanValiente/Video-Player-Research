@@ -35,7 +35,7 @@ bool j1Scene::Start()
 	App->win->SetTitle("Video Player");
 	// TODO 1: Call the initialize function from the video module in the start of the scene.
 
-	// TODO 7: Play the music of the video using the audio module. 
+	// TODO 8: Play the music of the video using the audio module. 
 
 	return true;
 }

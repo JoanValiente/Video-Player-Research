@@ -67,15 +67,15 @@ bool j1Video::GrabAVIFrame()
 	*/
 	
 																					
-	/*TODO 4.1: Create a surface using the bitmap data we have above this TODO, and create the texture of the frame with that surface (use LoadSurface from textures module)
+	/*TODO 5.1: Create a surface using the bitmap data we have above this TODO, and create the texture of the frame with that surface (use LoadSurface from textures module)
 				- pdata holds the texture data (pixels)
 				- biBitCount holds the depht in bits and is contained in the LPBITMAPINFOHEADER structure
 				- pitch is the length of a row of pixels in bytes (width x 3)
 	*/	
 
-	//TODO 5.1: Blit the texture of the frame.
+	//TODO 6.1: Blit the texture of the frame.
 
-	//TODO 6: Limit the change of the frame to one out of two times.
+	//TODO 7: Limit the change of the frame to one out of two times.
 	// Hint: We want to blit a diferent frame only when our counter, i, is an even number.
 	frame++;
 	if (frame >= lastFrame)
@@ -84,7 +84,7 @@ bool j1Video::GrabAVIFrame()
 		isVideoFinished = true;
 	}
 	
-	// TODO 4.2: Unload the texture and free the surface after the blit.
+	// TODO 5.2: Unload the texture and free the surface after the blit.
 
 	// BONUS. Window title with information about our video.
 	/*
