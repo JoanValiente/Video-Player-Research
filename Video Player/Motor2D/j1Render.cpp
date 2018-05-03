@@ -153,12 +153,6 @@ bool j1Render::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* section,
 		SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
 	}
 
-	if (rendererFlip == SDL_FLIP_VERTICAL)
-	{
-		rect.x -= pivot_x;
-		rect.y -= (rect.h - pivot_y);
-	}
-
 	rect.w *= scale;
 	rect.h *= scale;
 
@@ -172,6 +166,7 @@ bool j1Render::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* section,
 		p = &pivot;
 	}
 
+	//TODO 5.2: And use the flag on SDL_RenderCopyEx(...)
 	if(SDL_RenderCopyEx(renderer, texture, section, &rect, angle, p, rendererFlip) != 0)
 	{
 		LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());

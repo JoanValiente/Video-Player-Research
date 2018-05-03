@@ -9,7 +9,7 @@
 #include "j1Map.h"
 #include "j1Scene.h"
 #include "j1Video.h"
-
+#include "SDL_mixer\include\SDL_mixer.h"
 
 j1Scene::j1Scene() : j1Module()
 {
@@ -32,10 +32,8 @@ bool j1Scene::Awake()
 // Called before the first frame
 bool j1Scene::Start()
 {
-	App->video->Initialize("video/sample.avi");
-	introTime.Start();
-	//App->win->SetTitle("Video Player");
-
+	App->video->Initialize("video/sample(good).avi");
+	App->audio->PlayMusic("video/sample.ogg", 0.0f);
 
 	return true;
 }
@@ -49,13 +47,18 @@ bool j1Scene::PreUpdate()
 // Called each loop iteration
 bool j1Scene::Update(float dt)
 {
-	if (introTime.ReadSec() < 5.0)
+	if (!App->video->isVideoFinished)
 	{
 		App->video->GrabAVIFrame();
-	}
 
-	if (App->input->GetKey(SDL_SCANCODE_1)) {
-		App->video->CloseAVI();
+	}
+	else 
+		Mix_PauseMusic();
+
+
+	if (App->input->GetKey(SDL_SCANCODE_1) && App->video->isVideoFinished) {
+		App->video->Initialize("video/sample(good).avi");
+		App->audio->PlayMusic("video/sample.ogg", 0.0f);
 	}
 
 	return true;

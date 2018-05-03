@@ -2,13 +2,14 @@
 #define __j1VIDEO_H__
 
 #include "j1Module.h"
-#include <windows.h>
-#include <gl\gl.h>                            // Header File For The OpenGL32 Library
-#include <gl\glu.h>                           // Header File For The GLu32 Library
+
+/* TODO 1: Include the Video For Windows (vfw) library & header, and the DirectShow header. 
+			- DirectShow header: dshow.h
+			- VideoForWindows header: Vfw.h
+			- VideoForWindows lib: vfw32.lib
+*/
 #include <dshow.h>
 #include <Vfw.h>                          // Header File For Video For Windows
-#pragma comment( lib, "opengl32.lib" )                  // Search For OpenGL32.lib While Linking
-#pragma comment( lib, "glu32.lib" )                 // Search For GLu32.lib While Linking
 #pragma comment( lib, "vfw32.lib" )                 // Search For VFW32.lib While Linking
 
 
@@ -34,33 +35,26 @@ public:
 
 	void CloseAVI();
 
-	void flip(void* buffer);
+public:
+	bool				isVideoFinished = false;
 
 private:
 	// User Defined Variables
 	float       angle;                          // Used For Rotation
-	int     next;                           // Used For Animation
-	int     frame = 0;                        // Frame Counter
-	int     effect;                         // Current Effect
-	bool        env = true;                       // Environment Mapping (Default On)
-	bool        bg = true;                        // Background (Default On)
+	int			next;                           // Used For Animation
+	int			frame = 0;                      // Frame Counter
+
 
 	AVISTREAMINFO       psi;                        // Pointer To A Structure Containing Stream Info
-	PAVISTREAM      pavi;                       // Handle To An Open Stream
-	PGETFRAME       pgf;                        // Pointer To A GetFrame Object
+	PAVISTREAM			pavi;                       // Handle To An Open Stream
+	PGETFRAME			pgf;                        // Pointer To A GetFrame Object
 	BITMAPINFOHEADER    bmih;                       // Header Information For DrawDibDraw Decoding
-	long            lastframe;                  // Last Frame Of The Stream
-	int         width;                      // Video Width
-	int         height;                     // Video Height
-	char*        pdata;                     // Pointer To Texture Data
-	int         mpf;                        // Will Hold Rough Milliseconds Per Frame
 
-	GLUquadricObj *quadratic;                       // Storage For Our Quadratic Objects
-
-	HDRAWDIB hdd;                               // Handle For Our Dib
-	HBITMAP hBitmap;                            // Handle To A Device Dependant Bitmap
-	HDC hdc = CreateCompatibleDC(0);                    // Creates A Compatible Device Context
-	unsigned char* data = 0;                        // Pointer To Our Resized Image
+	long				lastFrame;                  // Last Frame Of The Stream
+	int					width;                      // Video Width
+	int					height;                     // Video Height
+	char*				pdata;					    // Pointer To Texture Data
+	int					mpf;                        // Will Hold Rough Milliseconds Per Frame
 
 	int i = 1;
 };
