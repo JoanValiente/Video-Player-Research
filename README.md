@@ -4,7 +4,9 @@ I am [Joan Valiente](www.linkedin.com/in/joan-valiente-lorite-498a9b129), studen
 
 
 
+
 ##1.Introduction
+
 In this website I will explain how to implement a module to reproduce AVI files, and how it works. This modules are programmed in C++ using VisualStudio2017.
 I am also using Video For Windows libraries and DirectShow to open, read and decompress AVI files; and SDL to render graphics.
 
@@ -33,7 +35,8 @@ Black Ops. Intermission cutscene.
 <div style="position:relative;height:0;padding-bottom:52.18%"><iframe src="https://www.youtube.com/embed/dA0kR3SLJJc?ecver=2" style="position:absolute;width:100%;height:100%;left:0" width="690" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
 Valve Intro(2012). 
 
-###2.1 Pre-rendered cutscenes vs real time cutscenes.
+###2.1 Pre-rendered cutscenes vs real time cutscenes
+
 Nowadays, most of the community dislikes pre-rendered cutscenes. A few years ago, their narrative strength offset their lack of interaction, but now that our computational limitations are way much smaller, users prefer real time cutscenes.
 
 <div style="position:relative;height:0;padding-bottom:52.18%"><iframe src="https://www.youtube.com/embed/wFbWI0pwXH0?ecver=2" style="position:absolute;width:100%;height:100%;left:0" width="690" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
@@ -47,7 +50,7 @@ How is it going to work? The theory is really simple. First, we have to read the
 
 FUNCTIONS
 We will have four esential functions. 
-- **OpenAVI, that opens the avi file and reads its stream data.
-- **Initialize, that calls OpenAVI with the path to the file (we will call this function whenever we want to play a video)
-- **GrabAVIFrame, that gets the frame data, makes a surface and a texture, and blit it.
-- **CloseAVI, that will free the memory we have used.
+-**OpenAVI, that opens the avi file and reads its stream data.
+-**Initialize, that calls OpenAVI with the path to the file (we will call this function whenever we want to play a video)
+-**GrabAVIFrame, that gets the frame data, makes a surface and a texture, and blit it.
+-**CloseAVI, that will free the memory we have used.
