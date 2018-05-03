@@ -64,12 +64,20 @@ We will have four esential functions.
 
 -**CloseAVI**, that will free the memory we have used.
 
+
 ```
+
+
+
 void Initialize(char* file_path);
 	void OpenAVI(LPCSTR path);
 	bool GrabAVIFrame();
 
-	void CloseAVI();```
+	void CloseAVI();
+
+
+```
+
 
 
 VARIABLES
@@ -86,7 +94,11 @@ The **psi** structure will hold information about our AVI file later in the code
 
 To be able to declare those, we have to include the video for windows library and header files. I also included the direct show header files beacause vfw is a little bit old and outdated, and we will be able to decompress videos with diferent codecs.
 
-```int			frame = 0;			
+
+```
+
+
+int			frame = 0;			
 
 AVISTREAMINFO       psi;      
 PAVISTREAM			pavi;     
@@ -97,7 +109,11 @@ int					width;
 int					height;   
 char*				pdata;		
 int					mpf;      
+
+
+
 ```
+
 
 ### 3.2 Codecs
 
@@ -122,7 +138,15 @@ Anyway, if you want to know more about codecs I will put some useful links that 
 - You have to pass the path to the AVI file.
 
 SOLUTION
-```App->video->Initialize("video/sample(good).avi");```
+
+```
+
+
+App->video->Initialize("video/sample(good).avi");
+
+
+```
+
 
 ### TODO 2: Open and then release the stream from the AVI file.
 
@@ -136,14 +160,28 @@ TODO 2.1: Open a single stream from the AVI file.
 - Use LOG to write info in case it fails.
 
 SOLUTION
-```if (AVIStreamOpenFromFile(&pavi, path, streamtypeVIDEO, 0, OF_READ, NULL) != 0)
-		LOG("Failed To Open The AVI Stream");```
+
+```
+
+
+if (AVIStreamOpenFromFile(&pavi, path, streamtypeVIDEO, 0, OF_READ, NULL) != 0)
+		LOG("Failed To Open The AVI Stream");
+
+
+```
 
 TODO 2.2: Release the stream.
 - Use AVIStreamRelease(...)
 
 SOLUTION
-```AVIStreamRelease(pavi);```
+
+```
+
+
+AVIStreamRelease(pavi);
+
+
+```
 
 
 ### TODO 3: Decompress video frames from the AVI file and deallocate the GetFrame resources.
@@ -154,15 +192,29 @@ TODO 3.1: Decompress video frames from the AVI file.
 - On the second parameter you can pass AVIGETFRAMEF_BESTDISPLAYFMT to select the best display format. Cast it to LPBITMAPINFOHEADER.
 
 SOLUTION
-```pgf = AVIStreamGetFrameOpen(pavi, (LPBITMAPINFOHEADER)AVIGETFRAMEF_BESTDISPLAYFMT);
+
+```
+
+
+pgf = AVIStreamGetFrameOpen(pavi, (LPBITMAPINFOHEADER)AVIGETFRAMEF_BESTDISPLAYFMT);
 	if (pgf == NULL)
-		LOG("Failed To Open The AVI Frame");```
+		LOG("Failed To Open The AVI Frame");
+
+
+```
 
 TODO 3.2: Deallocate the getframe resources.
 - AVIStreamGetFrameClose(...).
 
 SOLUTION
-```AVIStreamGetFrameClose(pgf);```
+
+```
+
+
+AVIStreamGetFrameClose(pgf);
+
+
+```
 
 Once you have come this far, you will notice that if you debug the current solution, it breaks when it has to get the data from the AVI stream. Why? Codecs. The video sample that I have left you has not the right codec.
 
@@ -187,22 +239,39 @@ TODO 5.1: Create a surface using the bitmap data we have above this TODO, and cr
 - pitch is the length of a row of pixels in bytes (widht x 3)
 
 SOLUTION
-```SDL_Surface* surface = SDL_CreateRGBSurfaceFrom(pdata, width, height, lpbi->biBitCount, width * 3, 0, 0, 0, 0);
-	SDL_Texture* texture = App->tex->LoadSurface(surface);```
+
+```
+
+
+SDL_Surface* surface = SDL_CreateRGBSurfaceFrom(pdata, width, height, lpbi->biBitCount, width * 3, 0, 0, 0, 0);
+	SDL_Texture* texture = App->tex->LoadSurface(surface);
+
+
+```
 
 TODO 5.2: Unload the texture and free the surface after the blit.
 - Use UnLoad(...) from the textures module and SDL_FreeSurface(...).
 
 SOLUTION
-```App->tex->UnLoad(texture);
-	SDL_FreeSurface(surface);```
+
+```
+
+App->tex->UnLoad(texture);
+	SDL_FreeSurface(surface);
+
+```
 
 ## TODO 6: Blit the texture of the frame.
 
 TODO 6.1: Do the blit with the texture we have created in the last TODO.
 
 SOLUTION
-```App->render->Blit(texture, 0, 0)```
+
+```
+
+App->render->Blit(texture, 0, 0);
+
+```
 
 
 Now you should see the video playing, but fliped in vertical and way too fast. Let's flip it! We will deal with the speed in the next TODO.
@@ -212,37 +281,63 @@ TODO 6.2: Prepare the blit function to recieve a SDL_RenderFlip flag.
 - Remember to put a default value (SDL_FLIP_NONE).
 
 SOLUTION
-```bool Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* section = nullptr, SDL_RendererFlip rendererFlip = SDL_FLIP_NONE, float speed = 1.0f, double angle = 0, int pivot_x = 0, int pivot_y = 0) const;```
-```bool j1Render::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* section, SDL_RendererFlip rendererFlip, float speed, double angle, int pivot_x, int pivot_y) const
+
+```
+
+bool Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* section = nullptr, SDL_RendererFlip rendererFlip = SDL_FLIP_NONE, float speed = 1.0f, double angle = 0, int pivot_x = 0, int pivot_y = 0) const;
+
+```
+
+```
+
+bool j1Render::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* section, SDL_RendererFlip rendererFlip, float speed, double angle, int pivot_x, int pivot_y) const
 {
-...```
+...
+
+```
 
 TODO 6.3: Use the flag on SDL_RenderCopyEx(...).
 
 SOLUTION
-```if(SDL_RenderCopyEx(renderer, texture, section, &rect, angle, p, rendererFlip) != 0)
+
+```
+
+if(SDL_RenderCopyEx(renderer, texture, section, &rect, angle, p, rendererFlip) != 0)
 	{
 		LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());
 		ret = false;
-	}```
+	}
+
+
+```
 
 ### TODO 7: Limit the change of the frame to one out of two times.
 
 -  Hint: We want to blit a diferent frame only when our counter, i, is an even number.
 
 SOLUTION
-```if (i % 2 == 0) 
+
+```
+
+if (i % 2 == 0) 
 	{
 		frame++;
 	}
-	i++;```
+	i++;
+
+```
 
 ### TODO 8: Play the music of the video.
 
 -  Use the audio module.
 
 SOLUTION
-```App->audio->PlayMusic("video/sample.ogg", 0.0f);```
+
+```
+
+App->audio->PlayMusic("video/sample.ogg", 0.0f);
+
+```
 
 
 ## References
