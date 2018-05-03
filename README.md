@@ -51,7 +51,17 @@ God of War 4. Real time cutscenes.
 
 How is it going to work? The theory is really simple. First, we have to read the avi file and the stream data. Then, on each loop we will take the bitmap data of a frame. With that, we will create a surface and a texture from that surface, and we will blit it on screen. Of course there are more steps to follow inbetween those, but that is a brief explanation of how it works.
 
-![](docs/asdasd.png)
+![](docs\asdasd.png)
+
+a
+a
+a
+a
+a
+a
+a
+a
+a
 
 ### 3.1 The module
 
