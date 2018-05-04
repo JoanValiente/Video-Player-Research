@@ -56,6 +56,7 @@ How is it going to work? The theory is really simple. First, we have to read the
 ### 3.1 The module
 
 FUNCTIONS
+
 We will have four esential functions.
  
 -**OpenAVI**, that opens the avi file and reads its stream data.
