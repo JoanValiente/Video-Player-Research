@@ -4,7 +4,7 @@ I am [Joan Valiente](www.linkedin.com/in/joan-valiente-lorite-498a9b129), studen
 
 
 
-
+Download latest release [here](https://github.com/JoanValiente/Video-Player-Research/releases/tag/1.0)
 ## 1.Introduction
 
 In this website I will explain how to implement a module to reproduce AVI files, and how it works. This modules are programmed in C++ using VisualStudio2017.
