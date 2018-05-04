@@ -51,17 +51,7 @@ God of War 4. Real time cutscenes.
 
 How is it going to work? The theory is really simple. First, we have to read the avi file and the stream data. Then, on each loop we will take the bitmap data of a frame. With that, we will create a surface and a texture from that surface, and we will blit it on screen. Of course there are more steps to follow inbetween those, but that is a brief explanation of how it works.
 
-![](docs\asdasd.png)
-
-a
-a
-a
-a
-a
-a
-a
-a
-a
+![asdasd](https://user-images.githubusercontent.com/25648776/39608152-c6ded98a-4f3f-11e8-9b53-90b7bbb23b06.PNG)
 
 ### 3.1 The module
 
@@ -240,10 +230,9 @@ Follow the next steps:
 1. Go to File->Export->Media...
 2. Go to Video Codec options and select "Códec Intel IYUV"
 
+![ppexportbox](https://user-images.githubusercontent.com/25648776/39608158-dd1d762a-4f3f-11e8-9b08-48c021585434.PNG)
 
-![](docs/PPExportBox.png)
-
-![](docs/dzfasdf.png)
+![dzfasdf](https://user-images.githubusercontent.com/25648776/39608159-df167738-4f3f-11e8-93ee-30a9618f5fa3.PNG)
 
 
 SOLUTION
@@ -294,8 +283,7 @@ App->render->Blit(texture, 0, 0);
 
 Now you should see the video playing, but fliped in vertical and way too fast. Let's flip it! We will deal with the speed in the next TODO.
 
-
-![](docs/zsxdas.png)
+![zsxdas](https://user-images.githubusercontent.com/25648776/39608162-e06b2da4-4f3f-11e8-8448-3a07c6cba248.PNG)
 
 
 TODO 6.2: Prepare the blit function to recieve a SDL_RenderFlip flag.
